@@ -57,7 +57,11 @@ class JUnitBasicMultiVersionIntegrationSpec extends MultiVersionIntegrationSpec 
         }
     }
 
-    protected assumeNotJUnitPlatform() {
+    /**
+     * This is used when a single test method should be ignored with JUnit Platform
+     * because Assume.assumeTrue(false) is equivalent to @Ignore
+     */
+    protected void assumeNotJUnitPlatform() {
         Assume.assumeTrue(version != JUnitCoverage.PLATFORM)
     }
 
